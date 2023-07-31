@@ -1,0 +1,5 @@
+Reset Config via cli
+system reset-configuration keep-users=no caps-mode=no no-defaults=yes skip-backup=yes
+
+Alert Reset Config
+Dangerous! Reset anyway? [y/N]: y
