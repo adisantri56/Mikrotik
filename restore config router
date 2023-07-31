@@ -1,0 +1,8 @@
+first import file config to file mikrotik and next via cli
+
+Restore Config via cli
+system backup load name=Mikrotik-Latihan.backup
+
+Konfirmasi Restore
+password: enter
+Restore and reboot? [y/N]: y
