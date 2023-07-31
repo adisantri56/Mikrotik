@@ -1,0 +1,7 @@
+first import file config to file mikrotik and next via cli
+
+Restore Config via cli
+import file-name=Mikrotik-Latihan.rsc
+
+Informasi Import Sukses
+Script file loaded and executed successfully
