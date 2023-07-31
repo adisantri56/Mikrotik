@@ -1,0 +1,37 @@
+Topologi
+WAN > eth1 Mikrotik eth2 > Client
+eth1 > dhcp client
+eth2 > ip address, dhcp server
+wlan1 > ip address, dhcp server
+
+configure eth1&2
+Req DHCP Client pada eth1 (Modem Internet)
+ip dhcp-client add interface=ether1 disabled=no
+
+Buat IP Address untuk eth2 (To Client)
+ip address add address=192.168.50.1/24 interface=ether2-ClientA network=192.168.50.0
+
+Config DHCP Server untuk eth2
+ip dhcp-server add address-pool=dhcp_pool1 disabled=no interface=ether2-ClientA name=dhcp1
+ip dhcp-server network add address=192.168.50.0/24 gateway=192.168.50.1
+
+Config NAT
+ip firewall nat add action=masquerade chain=srcnat out-interface=ether1-internet
+
+configure wlan1
+Enable Interface Wlan1
+interface wireless enable numbers=0
+
+Add Security Profile
+interface wireless security-profiles add authentication-types=wpa-psk,wpa2-psk group-ciphers=tkip,aes-ccm mode=dynamic-keys name=MikrotikAP supplicant-identity="" unicast-ciphers=tkip,aes-ccm wpa-pre-shared-key=12345678 wpa2-pre-shared-key=12345678
+
+Config Mode AP pada Wlan1
+interface wireless set mode=ap-bridge security-profile=MikrotikAP ssid=MikrotikAP numbers=0
+
+Add IP Address untuk Wlan1
+ip address add address=192.168.60.1/24 interface=wlan1 network=192.168.60.0
+
+Add DHCP Server Wlan1
+ip dhcp-server add address-pool=dhcp_pool2 disabled=no interface=wlan1 name=dhcp2
+ip dhcp-server network add address=192.168.60.0/24 gateway=192.168.60.1
+
