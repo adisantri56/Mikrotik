@@ -1,0 +1,3 @@
+[admin@Mikrotik-Latihan] > interface ethernet set numbers=0 name=ether1-internet
+[admin@Mikrotik-Latihan] > interface ethernet set numbers=1 name=ether2-ClientA  
+[admin@Mikrotik-Latihan] > interface ethernet set numbers=2 name=ether3-ClientB
