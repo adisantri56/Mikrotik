@@ -1,0 +1,8 @@
+this script will configure interface and will add inteface ether2 and ether3 to interface bridge and next make ip address for interface bridge
+
+interface bridge add name=Bridge-Lan
+interface bridge port 
+add bridge=Bridge-Lan interface=ether2-ClientA
+add bridge=Bridge-Lan interface=ether3-ClientB
+
+ip address add address=192.168.60.1/24 interface=Bridge-Lan network=192.168.60.0
