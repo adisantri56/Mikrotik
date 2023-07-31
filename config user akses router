@@ -1,0 +1,14 @@
+Add User Administrator 
+user add group=full name=user1 password=12345678
+  
+Add User Admin 
+user add group=write name=user2 password=12345678
+  
+Add User Only Read Config
+user add group=read name=user3 password=12345678
+  
+Add User Spesial dengan IP
+user add group=full name=user4 password=12345678 address=192.168.50.100/32
+  
+Disable user default login MIkrotik
+user disable numbers=0
