@@ -1,0 +1,8 @@
+Add IP Pool untuk IP DHCP
+ip pool add name=dhcp_pool1 ranges=192.168.50.2-192.168.50.254
+  
+Add IP Pool untuk VPN User
+ip pool add name=Pool_VPN ranges=10.1.1.2-10.1.1.50
+  
+Add IP Pool untuk PPPoe User
+ip pool add name=Pool_PPPoE ranges=192.168.123.2-192.168.123.254
