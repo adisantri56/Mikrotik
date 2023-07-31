@@ -1,0 +1,16 @@
+topologi
+WAN > wlan1 Mikrotik eth2 > Leptop
+
+wlan1 = dhcp client
+ether2 = ip address, dhcp server
+
+configure
+Pastikan mengetahui SSID dan Password Target
+
+Add Password Target pada Security Profile Mikrotik
+interface wireless security-profiles add authentication-types=wpa-psk,wpa2-psk group-ciphers=tkip,aes-ccm mode=dynamic-keys name=WIFI supplicant-identity="" unicast-ciphers=tkip,aes-ccm wpa-pre-shared-key=PasswordAbc wpa2-pre-shared-key=PaswordAbc
+
+Scan untuk Mendapatkan SSID Target/Gunakan Script untuk manual config
+interface wireless set band=2ghz-b/g/n channel-width=20/40mhz-Ce disabled=no security-profile=WIFI ssid="WIFI " numbers=0
+
+Pastikan interface Wlan1 Status “R” Running
