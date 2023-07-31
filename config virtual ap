@@ -1,0 +1,15 @@
+before you using this script please cek this https://github.com/adisantri56/Mikrotik-Script/blob/main/config%20ap%20bridge
+
+Add Virtual AP pada Wlan2 dan Wlan3
+interface wireless add disabled=no keepalive-frames=disabled master-interface=wlan1 multicast-buffering=disabled name=wlan2 security-profile=MikrotikAP ssid=MikrotikAP-2 wds-cost-range=0 wds-default-cost=0 wps-mode=disabled
+interface wireless add disabled=no keepalive-frames=disabled master-interface=wlan1 multicast-buffering=disabled name=wlan3 security-profile=MikrotikAP ssid=MikrotikAP-3 wds-cost-range=0 wds-default-cost=0 wps-mode=disabled
+
+Add IP Address untuk Wlan2 dan Wlan3
+ip address add address=192.168.70.1/24 interface=wlan2 network=192.168.70.0
+ip address add address=192.168.80.1/24 interface=wlan3 network=192.168.80.0
+
+Add DHCP Server Wlan2 dan Wlan3
+ip dhcp-server add address-pool=dhcp_pool3 disabled=no interface=wlan2 name=dhcp3
+ip dhcp-server network add address=192.168.70.0/24 gateway=192.168.70.1
+ip dhcp-server add address-pool=dhcp_pool4 disabled=no interface=wlan3 name=dhcp4
+ip dhcp-server network add address=192.168.80.0/24 gateway=192.168.80.1
