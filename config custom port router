@@ -1,0 +1,12 @@
+Ubah default port Winbox 
+ip service set winbox port=21111
+
+Ubah default port Webfig
+ip service set www port=32222
+  
+Disable port yang tidak di gunakan
+ip service set telnet disabled=yes
+ip service set ftp disabled=yes
+ip service set ssh disabled=yes
+ip service set api disabled=yes
+ip service set api-ssl disabled=yes
